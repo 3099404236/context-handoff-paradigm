@@ -117,26 +117,26 @@ $
 
 == 跨设备接力过程分析
 
-实验中，笔记本 Worker（节点 A）发起任务并执行前 2 个阶段，定位到 OOM 根本原因后触发 Handoff。状态切片被安全序列化写入中继。随后，台式机 Worker（节点 B）检索到挂起任务，解析交接便签后接管，无缝继续执行第 3 至第 5 步，完成服务恢复。@tab:results 总结了各阶段的性能开销与状态指标。
+实验中，发起端（移动笔记本）启动自主任务并执行前 2 个阶段，定位到 OOM 根本原因后触发上下文转移挂起。状态切片被安全序列化写入中继。随后，接管端（高性能台式工作站）检索到挂起任务，解析交接便签后接管，无缝继续执行第 3 至第 5 步，完成服务恢复。@tab:results 总结了各阶段的性能开销与状态指标。
 
 #figure(
   table(
-    columns: (1.2fr, 0.8fr, 0.8fr, 1.2fr, 1.5fr),
+    columns: (1.2fr, 0.9fr, 0.8fr, 1.2fr, 1.5fr),
     inset: (x: 0.45em, y: 0.35em),
     align: (left, center, center, left, left),
     table.header(
       [执行阶段],
-      [执行节点],
+      [执行角色],
       [步骤游标],
       [主要操作],
       [认知状态演进],
     ),
-    [阶段 1: 日志定位], [笔记本 A], [Step 1], [Tail Nginx Error], [捕获 111 拒绝连接异常],
-    [阶段 2: 根因确诊], [笔记本 A], [Step 2], [Systemctl Status], [确诊 OOM 故障根因],
-    [阶段 2.5: 跨端交接], [状态中继], [Step 2->3], [生成 Handover Note], [序列化 3.5KB 上下文切片],
-    [阶段 3: 配置热修], [台式机 B], [Step 3], [Sed conf 参数调整], [变量记录 max_children=50],
-    [阶段 4: 集群重启], [台式机 B], [Step 4], [Systemctl Restart], [内存稳定在 380MB],
-    [阶段 5: 健康校验], [台式机 B], [Step 5], [Curl Health Check], [验证 HTTP 200 OK 交付],
+    [阶段 1: 日志定位], [发起端 (Laptop)], [Step 1], [Tail Nginx Error], [捕获 111 拒绝连接异常],
+    [阶段 2: 根因确诊], [发起端 (Laptop)], [Step 2], [Systemctl Status], [确诊 OOM 故障根因],
+    [阶段 2.5: 跨端交接], [状态中继 (Relay)], [Step 2->3], [生成 Handover Note], [序列化 3.5KB 上下文切片],
+    [阶段 3: 配置热修], [接管端 (Desktop)], [Step 3], [Sed conf 参数调整], [变量记录 max_children=50],
+    [阶段 4: 集群重启], [接管端 (Desktop)], [Step 4], [Systemctl Restart], [内存稳定在 380MB],
+    [阶段 5: 健康校验], [接管端 (Desktop)], [Step 5], [Curl Health Check], [验证 HTTP 200 OK 交付],
   ),
   caption: [双设备接力全流程执行追踪与状态指标],
 ) <tab:results>

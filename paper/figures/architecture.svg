@@ -1,85 +1,121 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 400" width="100%" height="100%" style="background:#ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', 'PingFang SC', sans-serif;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 350" width="100%" height="100%" style="background:#ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
   <defs>
-    <marker id="arrow-gray" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 1 L 10 5 L 0 9 z" fill="#475569" />
+    <marker id="arr-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#1d4ed8" />
     </marker>
-    <marker id="arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 1 L 10 5 L 0 9 z" fill="#2563eb" />
+    <marker id="arr-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#15803d" />
     </marker>
-    <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 1 L 10 5 L 0 9 z" fill="#16a34a" />
+    <marker id="arr-gray" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#64748b" />
     </marker>
   </defs>
 
-  <!-- ==================== 1. CONTROL & EXECUTION PLANE (TOP) ==================== -->
-  <rect x="25" y="16" width="770" height="92" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4 4" />
-  <text x="40" y="36" font-size="12" font-weight="600" fill="#334155" letter-spacing="0.5">控制与执行面 (Control &amp; Execution Plane)</text>
+  <!-- ==================== 1. EXECUTION WORKERS (TOP) ==================== -->
+  <rect x="20" y="16" width="720" height="78" rx="4" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3 3" />
+  <text x="32" y="32" font-size="11" font-weight="700" fill="#475569" letter-spacing="0.6">EXECUTION AGENTS</text>
 
-  <!-- Node A: Laptop -->
-  <rect x="45" y="46" width="270" height="50" rx="3" fill="#ffffff" stroke="#2563eb" stroke-width="1.2" />
-  <text x="58" y="66" font-size="12" font-weight="600" fill="#1e40af">执行节点 A: 笔记本 (Initiator Client)</text>
-  <text x="58" y="84" font-size="11" fill="#64748b">执行阶段 1-2 诊断 • 触发挂起并释放锁</text>
+  <!-- Initiator Agent -->
+  <g transform="translate(45, 36)">
+    <rect x="0" y="0" width="225" height="46" rx="3" fill="#ffffff" stroke="#2563eb" stroke-width="1.2" />
+    <!-- Laptop Vector Icon -->
+    <g transform="translate(12, 11)" stroke="#2563eb" stroke-width="1.4" fill="none">
+      <rect x="2" y="2" width="18" height="13" rx="1.5" />
+      <line x1="0" y1="19" x2="22" y2="19" stroke-linecap="round" stroke-width="2" />
+    </g>
+    <text x="44" y="22" font-size="12" font-weight="700" fill="#1e3a8a">Initiator Agent</text>
+    <text x="44" y="37" font-size="11" fill="#64748b">Laptop Client (Transient)</text>
+  </g>
 
-  <!-- Node B: Desktop -->
-  <rect x="505" y="46" width="270" height="50" rx="3" fill="#ffffff" stroke="#16a34a" stroke-width="1.2" />
-  <text x="518" y="66" font-size="12" font-weight="600" fill="#166534">执行节点 B: 台式机 (Successor Client)</text>
-  <text x="518" y="84" font-size="11" fill="#64748b">解析便签断点 • 接力执行阶段 3-5 热修</text>
-
-
-  <!-- ==================== 2. COGNITIVE STATE PLANE (MIDDLE HUB) ==================== -->
-  <rect x="25" y="132" width="770" height="150" rx="4" fill="#fafafa" stroke="#d4d4d8" stroke-width="1" />
-  <text x="40" y="152" font-size="12" font-weight="600" fill="#27272a" letter-spacing="0.5">认知与状态面 (Cognitive State Plane) - 统一状态中继 (Relay)</text>
-
-  <!-- Box 1: Cognitive Context -->
-  <rect x="45" y="164" width="230" height="104" rx="3" fill="#ffffff" stroke="#a1a1aa" stroke-width="1" />
-  <rect x="45" y="164" width="230" height="24" rx="3" fill="#f4f4f5" stroke="#a1a1aa" stroke-width="1" />
-  <text x="58" y="180" font-size="11" font-weight="600" fill="#18181b">认知上下文 (Cognitive Context)</text>
-  <text x="58" y="204" font-size="11" fill="#52525b">• 任务目标规范 (Goal Specification)</text>
-  <text x="58" y="224" font-size="11" fill="#52525b">• 多步规划图 (Execution Plan DAG)</text>
-  <text x="58" y="244" font-size="11" fill="#52525b">• 结构化工作记忆 (Working Memory)</text>
-
-  <!-- Box 2: Handover Digest -->
-  <rect x="295" y="164" width="230" height="104" rx="3" fill="#ffffff" stroke="#2563eb" stroke-width="1.2" />
-  <rect x="295" y="164" width="230" height="24" rx="3" fill="#eff6ff" stroke="#2563eb" stroke-width="1.2" />
-  <text x="308" y="180" font-size="11" font-weight="600" fill="#1e40af">交接摘要便签 (Handover Digest)</text>
-  <text x="308" y="204" font-size="11" fill="#334155">• 因果诊断结论 (Verified Findings)</text>
-  <text x="308" y="224" font-size="11" fill="#334155">• 当前未决假设 (Active Hypothesis)</text>
-  <text x="308" y="244" font-size="11" fill="#334155">• 接管操作建议 (Next Directives)</text>
-
-  <!-- Box 3: Runtime Checkpoint -->
-  <rect x="545" y="164" width="230" height="104" rx="3" fill="#ffffff" stroke="#a1a1aa" stroke-width="1" />
-  <rect x="545" y="164" width="230" height="24" rx="3" fill="#f4f4f5" stroke="#a1a1aa" stroke-width="1" />
-  <text x="558" y="180" font-size="11" font-weight="600" fill="#18181b">运行时检查点 (Runtime Checkpoint)</text>
-  <text x="558" y="204" font-size="11" fill="#52525b">• 步骤游标断点 (Step Cursor: 2/5)</text>
-  <text x="558" y="224" font-size="11" fill="#52525b">• 上下文局部变量 (Variables Store)</text>
-  <text x="558" y="244" font-size="11" fill="#52525b">• 分布式排他租约锁 (TTL Lease Lock)</text>
+  <!-- Successor Agent -->
+  <g transform="translate(490, 36)">
+    <rect x="0" y="0" width="225" height="46" rx="3" fill="#ffffff" stroke="#16a34a" stroke-width="1.2" />
+    <!-- Workstation Vector Icon -->
+    <g transform="translate(12, 11)" stroke="#16a34a" stroke-width="1.4" fill="none">
+      <rect x="2" y="2" width="16" height="12" rx="1" />
+      <line x1="10" y1="14" x2="10" y2="18" />
+      <line x1="5" y1="18" x2="15" y2="18" stroke-linecap="round" stroke-width="1.8" />
+      <rect x="20" y="3" width="5" height="15" rx="0.8" />
+    </g>
+    <text x="44" y="22" font-size="12" font-weight="700" fill="#14532d">Successor Agent</text>
+    <text x="44" y="37" font-size="11" fill="#64748b">Workstation Client (Persistent)</text>
+  </g>
 
 
-  <!-- ==================== 3. TARGET ENVIRONMENT PLANE (BOTTOM) ==================== -->
-  <rect x="25" y="306" width="770" height="78" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4 4" />
-  <text x="40" y="324" font-size="12" font-weight="600" fill="#334155" letter-spacing="0.5">目标与环境面 (Target Environment Plane)</text>
+  <!-- ==================== 2. CONTEXT RELAY SERVICE (MIDDLE) ==================== -->
+  <rect x="20" y="118" width="720" height="118" rx="4" fill="#fafafa" stroke="#94a3b8" stroke-width="1" />
+  <text x="32" y="136" font-size="11" font-weight="700" fill="#334155" letter-spacing="0.6">CONTEXT RELAY SERVICE</text>
 
-  <!-- Remote Target Box -->
-  <rect x="180" y="334" width="460" height="40" rx="3" fill="#ffffff" stroke="#64748b" stroke-width="1.2" />
-  <text x="410" y="352" font-size="12" font-weight="600" fill="#0f172a" text-anchor="middle">远程解耦基础设施 (Remote Linux VPS / Cloud Workload)</text>
-  <text x="410" y="367" font-size="11" fill="#64748b" text-anchor="middle">Nginx 1.24 故障现场 • PHP-FPM 进程池 • 系统日志追踪</text>
+  <!-- Component 1: Working Memory Store -->
+  <g transform="translate(45, 146)">
+    <rect x="0" y="0" width="205" height="76" rx="3" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+    <g transform="translate(12, 10)" stroke="#0284c7" stroke-width="1.3" fill="none">
+      <rect x="2" y="3" width="16" height="14" rx="1" />
+      <line x1="5" y1="7" x2="15" y2="7" />
+      <line x1="5" y1="11" x2="12" y2="11" />
+    </g>
+    <text x="36" y="22" font-size="12" font-weight="700" fill="#0f172a">Memory Store</text>
+    <text x="12" y="44" font-size="11" fill="#475569">• Task Plan &amp; DAG</text>
+    <text x="12" y="61" font-size="11" fill="#475569">• Inferred Fact Store</text>
+  </g>
+
+  <!-- Component 2: Handover Digest -->
+  <g transform="translate(278, 146)">
+    <rect x="0" y="0" width="205" height="76" rx="3" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.2" />
+    <g transform="translate(12, 10)" stroke="#2563eb" stroke-width="1.3" fill="none">
+      <path d="M 3 3 H 13 L 17 7 V 17 H 3 Z" />
+      <line x1="6" y1="10" x2="12" y2="10" />
+      <line x1="6" y1="13" x2="14" y2="13" />
+    </g>
+    <text x="36" y="22" font-size="12" font-weight="700" fill="#1d4ed8">Handover Digest</text>
+    <text x="12" y="44" font-size="11" fill="#1e40af">• Cause Synthesis</text>
+    <text x="12" y="61" font-size="11" fill="#1e40af">• Next Action Directives</text>
+  </g>
+
+  <!-- Component 3: Lease Coordinator -->
+  <g transform="translate(510, 146)">
+    <rect x="0" y="0" width="205" height="76" rx="3" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+    <g transform="translate(12, 10)" stroke="#059669" stroke-width="1.3" fill="none">
+      <rect x="3" y="8" width="14" height="11" rx="1.5" />
+      <path d="M 6 8 V 4 C 6 2, 14 2, 14 4 V 8" />
+    </g>
+    <text x="36" y="22" font-size="12" font-weight="700" fill="#0f172a">Lease Coordinator</text>
+    <text x="12" y="44" font-size="11" fill="#475569">• Step Checkpoint</text>
+    <text x="12" y="61" font-size="11" fill="#475569">• Mutual-Exclusion Lock</text>
+  </g>
 
 
-  <!-- ==================== ORTHOGONAL CONNECTORS (CLEAN & NON-OVERLAPPING) ==================== -->
-  <!-- 1. Node A Handoff Downward Arrow -->
-  <line x1="200" y1="96" x2="200" y2="130" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrow-blue)" />
-  <text x="206" y="118" font-size="10" font-weight="600" fill="#2563eb">状态切片序列化 (Suspend &amp; Snapshot)</text>
+  <!-- ==================== 3. TARGET ENVIRONMENT (BOTTOM) ==================== -->
+  <g transform="translate(20, 260)">
+    <rect x="0" y="0" width="720" height="72" rx="4" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3 3" />
+    <text x="12" y="18" font-size="11" font-weight="700" fill="#475569" letter-spacing="0.6">TARGET ENVIRONMENT</text>
 
-  <!-- 2. Node B Resume Upward Arrow -->
-  <line x1="620" y1="130" x2="620" y2="98" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arrow-green)" />
-  <text x="470" y="118" font-size="10" font-weight="600" fill="#16a34a">状态恢复与断点接管 (Hydrate &amp; Resume)</text>
+    <rect x="170" y="24" width="380" height="36" rx="3" fill="#ffffff" stroke="#475569" stroke-width="1.2" />
+    <g transform="translate(182, 31)" stroke="#475569" stroke-width="1.3" fill="none">
+      <rect x="2" y="3" width="18" height="16" rx="1.5" />
+      <line x1="2" y1="8" x2="20" y2="8" />
+      <circle cx="5" cy="5.5" r="0.8" fill="#475569" />
+      <circle cx="8" cy="5.5" r="0.8" fill="#475569" />
+    </g>
+    <text x="210" y="46" font-size="12" font-weight="600" fill="#1e293b">Target VPS Infrastructure (Remote Linux Host)</text>
+  </g>
 
-  <!-- 3. Node A SSH Session Line (Outer Left Path, 0 overlap) -->
-  <path d="M 45 71 L 10 71 L 10 354 L 178 354" fill="none" stroke="#475569" stroke-width="1.2" stroke-dasharray="3 3" marker-end="url(#arrow-gray)" />
-  <text x="14" y="346" font-size="10" fill="#475569">阶段 1-2 SSH 远程诊断</text>
 
-  <!-- 4. Node B SSH Session Line (Outer Right Path, 0 overlap) -->
-  <path d="M 775 71 L 810 71 L 810 354 L 642 354" fill="none" stroke="#475569" stroke-width="1.2" stroke-dasharray="3 3" marker-end="url(#arrow-gray)" />
-  <text x="696" y="346" font-size="10" fill="#475569" text-anchor="start">阶段 3-5 SSH 动态重建</text>
+  <!-- ==================== PROTOCOL FLOWS ==================== -->
+  <!-- 1. Handoff Flow -->
+  <line x1="158" y1="82" x2="158" y2="116" stroke="#1d4ed8" stroke-width="1.6" marker-end="url(#arr-blue)" />
+  <text x="166" y="103" font-size="10" font-weight="600" fill="#1d4ed8">Snapshot &amp; Relinquish Lock</text>
+
+  <!-- 2. Resume Flow -->
+  <line x1="602" y1="116" x2="602" y2="84" stroke="#15803d" stroke-width="1.6" marker-end="url(#arr-green)" />
+  <text x="462" y="103" font-size="10" font-weight="600" fill="#15803d">Acquire Lock &amp; Restore State</text>
+
+  <!-- 3. Initiator SSH Route -->
+  <path d="M 45 59 L 8 59 L 8 296 L 168 296" fill="none" stroke="#64748b" stroke-width="1.1" stroke-dasharray="3 3" marker-end="url(#arr-gray)" />
+  <text x="14" y="287" font-size="10" fill="#64748b">Diagnosis Phase (SSH)</text>
+
+  <!-- 4. Successor SSH Route -->
+  <path d="M 715 59 L 752 59 L 752 296 L 552 296" fill="none" stroke="#64748b" stroke-width="1.1" stroke-dasharray="3 3" marker-end="url(#arr-gray)" />
+  <text x="618" y="287" font-size="10" fill="#64748b" text-anchor="start">Remediation Phase (SSH)</text>
 
 </svg>

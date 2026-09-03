@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 400" width="100%" height="100%" style="background:#ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0f9ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e0f2fe;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fefce8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fef08a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0fdf4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#dcfce7;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#0284c7" />
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#16a34a" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="440" y="32" font-size="18" font-weight="bold" fill="#0f172a" text-anchor="middle">上下文转移范式 (CHP) 三层解耦系统架构模型</text>
+
+  <!-- Layer 1: Target Environment Plane -->
+  <rect x="40" y="60" width="800" height="75" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4 4" />
+  <text x="55" y="82" font-size="13" font-weight="bold" fill="#475569">① 目标与环境面 (Target Environment Plane)</text>
+  <rect x="220" y="75" width="440" height="45" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2" filter="url(#shadow)" />
+  <text x="440" y="102" font-size="13" fill="#1e293b" text-anchor="middle" font-weight="600">远程生产基础设施 (Cloud VPS / Nginx / PHP-FPM / Microservices)</text>
+
+  <!-- Layer 2: Cognitive State Plane -->
+  <rect x="40" y="160" width="800" height="110" rx="8" fill="url(#grad2)" stroke="#eab308" stroke-width="1.5" filter="url(#shadow)" />
+  <text x="55" y="184" font-size="13" font-weight="bold" fill="#854d0e">② 认知与状态面 (Cognitive State Plane) - 统一状态中继 (Relay)</text>
+  
+  <!-- Sub modules in state plane -->
+  <rect x="60" y="195" width="220" height="60" rx="6" fill="#ffffff" stroke="#facc15" stroke-width="1" />
+  <text x="170" y="218" font-size="12" font-weight="bold" fill="#713f12" text-anchor="middle">Cognitive State</text>
+  <text x="170" y="238" font-size="11" fill="#475569" text-anchor="middle">Goal • Plan Tree • Memory</text>
+
+  <rect x="300" y="195" width="260" height="60" rx="6" fill="#ffffff" stroke="#facc15" stroke-width="1" />
+  <text x="430" y="218" font-size="12" font-weight="bold" fill="#713f12" text-anchor="middle">Handover Note (交接便签)</text>
+  <text x="430" y="238" font-size="11" fill="#475569" text-anchor="middle">已知事实 • 故障根因 • 建议下一步</text>
+
+  <rect x="580" y="195" width="240" height="60" rx="6" fill="#ffffff" stroke="#facc15" stroke-width="1" />
+  <text x="700" y="218" font-size="12" font-weight="bold" fill="#713f12" text-anchor="middle">Runtime Checkpoint</text>
+  <text x="700" y="238" font-size="11" fill="#475569" text-anchor="middle">Step Index • Variables • Lease Lock</text>
+
+  <!-- Layer 3: Execution & Control Plane -->
+  <rect x="40" y="295" width="800" height="90" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4 4" />
+  <text x="55" y="318" font-size="13" font-weight="bold" fill="#475569">③ 执行与控制面 (Control &amp; Execution Plane)</text>
+
+  <!-- Device A: Laptop -->
+  <rect x="100" y="328" width="240" height="46" rx="6" fill="url(#grad1)" stroke="#38bdf8" stroke-width="1.5" filter="url(#shadow)" />
+  <text x="220" y="356" font-size="13" font-weight="bold" fill="#0369a1" text-anchor="middle">💻 发起端: 笔记本 Worker</text>
+
+  <!-- Device B: Desktop -->
+  <rect x="540" y="328" width="240" height="46" rx="6" fill="url(#grad3)" stroke="#4ade80" stroke-width="1.5" filter="url(#shadow)" />
+  <text x="660" y="356" font-size="13" font-weight="bold" fill="#15803d" text-anchor="middle">🖥️ 接管端: 台式机 Worker</text>
+
+  <!-- Connection Lines & Arrows -->
+  <!-- Laptop to Target -->
+  <path d="M 180 328 L 180 130 L 260 120" fill="none" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="3 3" />
+  <text x="140" y="145" font-size="11" fill="#0369a1" font-weight="600">阶段1-2排障</text>
+
+  <!-- Laptop to State Plane (Handoff) -->
+  <path d="M 240 328 L 240 260" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow)" />
+  <text x="248" y="295" font-size="11" fill="#0284c7" font-weight="bold">一键挂起 (Handoff)</text>
+
+  <!-- State Plane to Desktop (Resume) -->
+  <path d="M 640 260 L 640 324" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green)" />
+  <text x="648" y="295" font-size="11" fill="#16a34a" font-weight="bold">一键接管 (Resume)</text>
+
+  <!-- Desktop to Target -->
+  <path d="M 700 328 L 700 130 L 620 120" fill="none" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="3 3" />
+  <text x="708" y="145" font-size="11" fill="#15803d" font-weight="600">阶段3-5热修验证</text>
+</svg>

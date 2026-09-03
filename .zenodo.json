@@ -1,0 +1,19 @@
+{
+  "title": "REPLACE_WITH_PROJECT_TITLE",
+  "upload_type": "publication",
+  "publication_type": "technicalnote",
+  "description": "REPLACE_WITH_A_CLEAR_PROJECT_DESCRIPTION",
+  "creators": [
+    {
+      "name": "REPLACE_WITH_CREATOR_NAME",
+      "affiliation": "REPLACE_WITH_AFFILIATION"
+    }
+  ],
+  "access_right": "open",
+  "license": "cc-by-4.0",
+  "version": "v0.1.0-draft",
+  "keywords": [
+    "REPLACE_WITH_KEYWORD_1",
+    "REPLACE_WITH_KEYWORD_2"
+  ]
+}

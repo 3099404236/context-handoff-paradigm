@@ -1,0 +1,6 @@
+PRIVATE LOCAL PACKAGE
+This archive contains a Windows DPAPI encrypted secrets file.
+It only decrypts for the Windows user that created it.
+Do not upload this archive to GitHub or a remote chat service.
+This warning applies to the archive and secrets, not to a cleaned project repository.
+A cleaned project is public by default when the user asks to upload or publish.
